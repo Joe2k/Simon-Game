@@ -2,6 +2,7 @@ var buttonColours=["red", "blue", "green", "yellow"];
 var gamePattern=[];
 var userClickedPattern=[];
 var level=0;
+var keyCheck=0;
 
 
 function nextSequence(){
@@ -38,8 +39,9 @@ function animatePress(currentColour) {
 }
 
 $(document).keydown(function () {
+    if(keyCheck===0)
     nextSequence();
-
+    keyCheck=1;
 });
 
 function checkAnswer(currentLevel){
@@ -67,4 +69,5 @@ function startOver(){
     level=0;
     gamePattern=[];
     userClickedPattern=[];
+    keyCheck=0;
 }
